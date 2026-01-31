@@ -26,6 +26,11 @@ class AIGirlfriendBot:
     def _login(self, username, password):
         session_file = f"{username}_session.json"
         
+        proxy = os.getenv("PROXY_URL")
+        if proxy:
+            self.client.set_proxy(proxy)
+            print(f"Using proxy: {proxy}")
+        
         if os.path.exists(session_file):
             try:
                 self.client.load_settings(session_file)
@@ -69,12 +74,10 @@ class AIGirlfriendBot:
                 self.client.dump_settings(session_file)
             else:
                 print(f"\n❌ Instagram Login Blocked")
-                print("\nQuick Fix:")
-                print("1. Open Instagram app on your phone")
-                print("2. Login with this account")
-                print("3. Wait 5 minutes")
-                print("4. Run the bot again")
-                print("\nOR use a fresh Instagram account created from this device/network")
+                print("\nSolutions:")
+                print("1. Add PROXY_URL env variable with residential proxy")
+                print("2. Login from phone first, then upload session file")
+                print("3. Use a VPS with residential IP")
                 import sys
                 sys.exit(1)
 

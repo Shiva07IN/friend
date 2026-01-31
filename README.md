@@ -17,7 +17,10 @@ Fast AI-powered Instagram chatbot with personality.
    - `INSTAGRAM_USERNAME`
    - `INSTAGRAM_PASSWORD`
    - `GROQ_API_KEY`
+   - `PROXY_URL` (optional but recommended - use residential proxy)
 5. Deploy!
+
+**Note:** Instagram blocks datacenter IPs. Use a residential proxy or login from phone first.
 
 ## Local Setup
 
